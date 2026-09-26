@@ -1,21 +1,35 @@
-# Train CIFAR10 with PyTorch
+# CIFAR10 ResNet18 Classification with PyTorch
+用PyTorch实现CIFAR10数据集上的图像分类。
 
-I'm playing with [PyTorch](http://pytorch.org/) on the CIFAR10 dataset.
+## 项目介绍
+本项目基于开源pytorch-cifar代码二次开发，主要使用模型SimpleDLA在CIFAR10数据集完成图像分类。（文件夹Models中有其他模型，想试试其他的在main.py的net那里改一下就行）
+- 修改源码适配Windows系统，修复Linux专属stty（我直接把stty这段删了）、多进程相关报错
+- 在训练代码中新增日志记录，自动将每轮epoch的训练/测试loss、acc保存到CSV文件
+- 独立编写绘图脚本，读取CSV绘制loss和accuracy变化曲线，直观观察模型收敛与过拟合现象
+- 支持断点续训，可加载保存的模型权重继续训练
 
-## Prerequisites
-- Python 3.6+
-- PyTorch 1.0+
+## 环境依赖
+- Python >=3.6
+- PyTorch >=1.0
+- torchvision
+- matplotlib
+- numpy
 
-## Training
-```
-# Start training with: 
+## 运行方法
+### 1. 克隆仓库
+```bash
+git clone https://github.com/LLR-A11Y/cifar-resnet18.git
+cd cifar-resnet18
+
+## 开始训练 (可以自己调整学习率)
 python main.py
 
-# You can manually resume the training with: 
-python main.py --resume --lr=0.01
-```
+## 绘制训练曲线
+python plot_log.py
+
 
 ## Accuracy
+# 这些数据是原项目自带的测的（ResNet我加了一个Dropout,accuracy可能高一点）
 | Model             | Acc.        |
 | ----------------- | ----------- |
 | [VGG16](https://arxiv.org/abs/1409.1556)              | 92.64%      |
