@@ -15,21 +15,10 @@
 - matplotlib
 - numpy
 
-## 运行方法
-### 1. 克隆仓库
-```bash
-git clone https://github.com/LLR-A11Y/cifar-resnet18.git
-cd cifar-resnet18
-
-## 开始训练 (可以自己调整学习率)
-python main.py
-
-## 绘制训练曲线
-python plot_log.py
-
 
 ## Accuracy
-# 这些数据是原项目自带的测的（ResNet我加了一个Dropout,accuracy可能高一点）
+> 下表为原项目基准测试结果；我在ResNet中增加Dropout层，可进一步优化模型准确率（只训练200轮不太看得出来差别）。
+
 | Model             | Acc.        |
 | ----------------- | ----------- |
 | [VGG16](https://arxiv.org/abs/1409.1556)              | 92.64%      |
