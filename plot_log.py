@@ -7,7 +7,7 @@ train_acc = []
 test_loss = []
 test_acc = []
 
-with open('log_SGD.csv','r') as f:
+with open('log.csv','r') as f:
     reader = csv.reader(f)
     next(reader)
     for row in reader:
