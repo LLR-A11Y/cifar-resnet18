@@ -18,6 +18,7 @@ transform = transforms.Compose([
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # 实例化 SimpleDLA
+# 与 main.py 中的 net 要一样
 model = SimpleDLA().to(device)
 # 权重文件路径
 checkpoint = torch.load('./checkpoint/ckpt.pth', map_location=device)
@@ -26,7 +27,7 @@ state_dict = checkpoint['net']
 from collections import OrderedDict
 new_state_dict = OrderedDict()
 for k, v in state_dict.items():
-    name = k[7:] # 去掉前面7个字符 "module."
+    name = k[7:]            # 去掉前面7个字符 "module."
     new_state_dict[name] = v
 model.load_state_dict(new_state_dict)
 model.eval()
