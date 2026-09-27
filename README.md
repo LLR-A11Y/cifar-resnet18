@@ -1,4 +1,7 @@
-# CIFAR10 ResNet18 Classification with PyTorch
+<img width="1200" height="552" alt="Figure_1" src="https://github.com/user-attachments/assets/ba85e699-657e-484c-b4b5-1bd5f7260f0e" />
+效果如上
+
+## CIFAR10  Classification with PyTorch
 用PyTorch实现CIFAR10数据集上的图像分类。
 
 ## 项目介绍
